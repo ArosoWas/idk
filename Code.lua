@@ -14,12 +14,12 @@ local OrionLib = {
 	Flags = {},
 	Themes = {
 		Default = {
-			Main = Color3.fromRGB(35, 35, 35),
-			Second = Color3.fromRGB(42, 42, 42),
-			Stroke = Color3.fromRGB(60, 60, 60),
-			Divider = Color3.fromRGB(60, 60, 60),
+			Main = Color3.fromRGB(35,35,35),
+			Second = Color3.fromRGB(45,45,45),
+			Stroke = Color3.fromRGB(80,80,80),
+			Divider = Color3.fromRGB(0,0,0),
 			Text = Color3.fromRGB(255, 255, 255),
-			TextDark = Color3.fromRGB(255, 217, 3)
+			TextDark = Color3.fromRGB(200,200,200)
 		}
 	},
 	SelectedTheme = "Default",
@@ -1074,7 +1074,7 @@ function OrionLib:MakeWindow(WindowConfig)
 
 				function Slider:Set(Value)
 					self.Value = math.clamp(Round(Value, SliderConfig.Increment), SliderConfig.Min, SliderConfig.Max)
-					TweenService:Create(SliderDrag,TweenInfo.new(.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),{Size = UDim2.fromScale((self.Value - SliderConfig.Min) / (SliderConfig.Max - SliderConfig.Min), 1)}):Play()
+					TweenService:Create(SliderDrag,TweenInfo.new(0, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut),{Size = UDim2.fromScale((self.Value - SliderConfig.Min) / (SliderConfig.Max - SliderConfig.Min), 1)}):Play()
 					SliderBar.Value.Text = tostring(self.Value) .. " " .. SliderConfig.ValueName
 					SliderDrag.Value.Text = tostring(self.Value) .. " " .. SliderConfig.ValueName
 					SliderConfig.Callback(self.Value)
