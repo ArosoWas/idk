@@ -14,11 +14,11 @@ local OrionLib = {
 	Flags = {},
 	Themes = {
 		Default = {
-			Main = Color3.fromRGB(25, 25, 25),
-			Second = Color3.fromRGB(32, 32, 32),
+			Main = Color3.fromRGB(35, 35, 35),
+			Second = Color3.fromRGB(42, 42, 42),
 			Stroke = Color3.fromRGB(60, 60, 60),
 			Divider = Color3.fromRGB(60, 60, 60),
-			Text = Color3.fromRGB(240, 240, 240),
+			Text = Color3.fromRGB(255, 255, 255),
 			TextDark = Color3.fromRGB(150, 150, 150)
 		}
 	},
@@ -121,7 +121,7 @@ local function AddDraggingFunctionality(DragPoint, Main)
 		UserInputService.InputChanged:Connect(function(Input)
 			if Input == DragInput and Dragging then
 				local Delta = Input.Position - MousePos
-				TweenService:Create(Main, TweenInfo.new(0.45, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Position  = UDim2.new(FramePos.X.Scale,FramePos.X.Offset + Delta.X, FramePos.Y.Scale, FramePos.Y.Offset + Delta.Y)}):Play()
+				TweenService:Create(Main, TweenInfo.new(0, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Position  = UDim2.new(FramePos.X.Scale,FramePos.X.Offset + Delta.X, FramePos.Y.Scale, FramePos.Y.Offset + Delta.Y)}):Play()
 			end
 		end)
 	end)
@@ -1709,15 +1709,15 @@ function OrionLib:MakeWindow(WindowConfig)
 		end
 		return ElementFunction   
 	end  
-	
+
 	OrionLib:MakeNotification({
 		Name = "UI Library Upgrade",
 		Content = "New UI Library Available at sirius.menu/discord and sirius.menu/rayfield",
 		Time = 5
 	})
-	
 
-	
+
+
 	return TabFunction
 end   
 
